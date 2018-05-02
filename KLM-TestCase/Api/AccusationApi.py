@@ -6,15 +6,13 @@
 
 import unittest
 import requests
+data = [{'type': 1, 'reason': '', 'videoId': '9b7f7d007807'},
+        {'type': 2, 'reason': '', 'videoId': '9b7f7d007807'},
+        {'type': 3, 'reason': 'haldd', 'videoId': '9b7f7d007807'}]
 class Accusation(unittest.TestCase):
-    data = [{'type':1,'reason':'','videoId':'9b7f7d007807'},
-            {'type':2,'reason':'','videoId':'9b7f7d007807'},
-            {'type':3,'reason':'haldd','videoId':'9b7f7d007807'}]
-    def cc(self,data):
-        self.data=data
     def test_addAccusation(self):
         url = 'http://t.api.klm123.com/accusation/addAccusation'
         for i in range(0,3):
-            r = requests.post(url=url,data=self.data[i]).json()
-            print(self.data[i])
+            r = requests.post(url=url,data=data[i]).json()
+            print(data[i])
             assert r['msg']=='成功'
