@@ -14,5 +14,4 @@ class Accusation(unittest.TestCase):
         url = 'http://t.api.klm123.com/accusation/addAccusation'
         for i in range(0,3):
             r = requests.post(url=url,data=data[i]).json()
-            print(data[i])
             assert r['msg']=='成功'
